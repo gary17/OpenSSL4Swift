@@ -1,0 +1,542 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CEBB3D6B24F951C900ED0D9B /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBB3D6724F9504900ED0D9B /* libcrypto.a */; };
+		CEBB3D6C24F951D700ED0D9B /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBB3D6924F9505600ED0D9B /* libssl.a */; };
+		CEBB3D6F24F95F3000ED0D9B /* public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = CEBB3D6D24F95F3000ED0D9B /* public_key.pem */; };
+		CEBB3D7024F95F3000ED0D9B /* private_key_unencrypted.pem in Resources */ = {isa = PBXBuildFile; fileRef = CEBB3D6E24F95F3000ED0D9B /* private_key_unencrypted.pem */; };
+		CEC16A3224F9220600F09DC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC16A3124F9220600F09DC9 /* AppDelegate.swift */; };
+		CEC16A3424F9220600F09DC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC16A3324F9220600F09DC9 /* SceneDelegate.swift */; };
+		CEC16A3624F9220600F09DC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC16A3524F9220600F09DC9 /* ViewController.swift */; };
+		CEC16A3924F9220600F09DC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC16A3724F9220600F09DC9 /* Main.storyboard */; };
+		CEC16A3B24F9220900F09DC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC16A3A24F9220900F09DC9 /* Assets.xcassets */; };
+		CEC16A3E24F9220900F09DC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEC16A3C24F9220900F09DC9 /* LaunchScreen.storyboard */; };
+		CEC16A4924F9220900F09DC9 /* OpenSSL4SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC16A4824F9220900F09DC9 /* OpenSSL4SwiftTests.swift */; };
+		CEC16A5524F924F600F09DC9 /* OpenSSL4Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC16A5424F924F600F09DC9 /* OpenSSL4Swift.swift */; };
+		CEC16A5624F924F600F09DC9 /* OpenSSL4Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC16A5424F924F600F09DC9 /* OpenSSL4Swift.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CEC16A4524F9220900F09DC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEC16A2624F9220600F09DC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEC16A2D24F9220600F09DC9;
+			remoteInfo = OpenSSL4Swift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CEBB3D6724F9504900ED0D9B /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = OpenSSL/lib/libcrypto.a; sourceTree = "<group>"; };
+		CEBB3D6924F9505600ED0D9B /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/lib/libssl.a; sourceTree = "<group>"; };
+		CEBB3D6D24F95F3000ED0D9B /* public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = public_key.pem; sourceTree = "<group>"; };
+		CEBB3D6E24F95F3000ED0D9B /* private_key_unencrypted.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = private_key_unencrypted.pem; sourceTree = "<group>"; };
+		CEC16A2E24F9220600F09DC9 /* OpenSSL4Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenSSL4Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC16A3124F9220600F09DC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CEC16A3324F9220600F09DC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CEC16A3524F9220600F09DC9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEC16A3824F9220600F09DC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEC16A3A24F9220900F09DC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEC16A3D24F9220900F09DC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CEC16A3F24F9220900F09DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEC16A4424F9220900F09DC9 /* OpenSSL4SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenSSL4SwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEC16A4824F9220900F09DC9 /* OpenSSL4SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSSL4SwiftTests.swift; sourceTree = "<group>"; };
+		CEC16A4A24F9220900F09DC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEC16A5424F924F600F09DC9 /* OpenSSL4Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenSSL4Swift.swift; path = OpenSSL4Swift/OpenSSL4Swift.swift; sourceTree = "<group>"; };
+		CEC16A5824F92C5200F09DC9 /* OpenSSL4Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenSSL4Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEC16A5924F92C5200F09DC9 /* OpenSSL4SwiftTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenSSL4SwiftTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEC16A5E24F93A2700F09DC9 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/lib/iOS/libssl.a; sourceTree = "<group>"; };
+		CEC16A6024F93A8D00F09DC9 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = OpenSSL/lib/Mac/libssl.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEC16A2B24F9220600F09DC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEBB3D6C24F951D700ED0D9B /* libssl.a in Frameworks */,
+				CEBB3D6B24F951C900ED0D9B /* libcrypto.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEC16A4124F9220900F09DC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEC16A2524F9220600F09DC9 = {
+			isa = PBXGroup;
+			children = (
+				CEC16A5324F924E500F09DC9 /* Aux */,
+				CEC16A3024F9220600F09DC9 /* OpenSSL4Swift */,
+				CEC16A4724F9220900F09DC9 /* OpenSSL4SwiftTests */,
+				CEC16A2F24F9220600F09DC9 /* Products */,
+				CEC16A5824F92C5200F09DC9 /* OpenSSL4Swift-Bridging-Header.h */,
+				CEC16A5924F92C5200F09DC9 /* OpenSSL4SwiftTests-Bridging-Header.h */,
+				CEC16A5D24F93A2600F09DC9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CEC16A2F24F9220600F09DC9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEC16A2E24F9220600F09DC9 /* OpenSSL4Swift.app */,
+				CEC16A4424F9220900F09DC9 /* OpenSSL4SwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEC16A3024F9220600F09DC9 /* OpenSSL4Swift */ = {
+			isa = PBXGroup;
+			children = (
+				CEC16A3124F9220600F09DC9 /* AppDelegate.swift */,
+				CEC16A3324F9220600F09DC9 /* SceneDelegate.swift */,
+				CEC16A3524F9220600F09DC9 /* ViewController.swift */,
+				CEC16A3A24F9220900F09DC9 /* Assets.xcassets */,
+				CEC16A3F24F9220900F09DC9 /* Info.plist */,
+				CEC16A3C24F9220900F09DC9 /* LaunchScreen.storyboard */,
+				CEC16A3724F9220600F09DC9 /* Main.storyboard */,
+				CEBB3D6E24F95F3000ED0D9B /* private_key_unencrypted.pem */,
+				CEBB3D6D24F95F3000ED0D9B /* public_key.pem */,
+			);
+			path = OpenSSL4Swift;
+			sourceTree = "<group>";
+		};
+		CEC16A4724F9220900F09DC9 /* OpenSSL4SwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				CEC16A4824F9220900F09DC9 /* OpenSSL4SwiftTests.swift */,
+				CEC16A4A24F9220900F09DC9 /* Info.plist */,
+			);
+			path = OpenSSL4SwiftTests;
+			sourceTree = "<group>";
+		};
+		CEC16A5324F924E500F09DC9 /* Aux */ = {
+			isa = PBXGroup;
+			children = (
+				CEC16A5424F924F600F09DC9 /* OpenSSL4Swift.swift */,
+			);
+			name = Aux;
+			sourceTree = "<group>";
+		};
+		CEC16A5D24F93A2600F09DC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEBB3D6924F9505600ED0D9B /* libssl.a */,
+				CEBB3D6724F9504900ED0D9B /* libcrypto.a */,
+				CEC16A6024F93A8D00F09DC9 /* libssl.a */,
+				CEC16A5E24F93A2700F09DC9 /* libssl.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEC16A2D24F9220600F09DC9 /* OpenSSL4Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEC16A4D24F9220900F09DC9 /* Build configuration list for PBXNativeTarget "OpenSSL4Swift" */;
+			buildPhases = (
+				CEC16A2A24F9220600F09DC9 /* Sources */,
+				CEC16A2B24F9220600F09DC9 /* Frameworks */,
+				CEC16A2C24F9220600F09DC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenSSL4Swift;
+			productName = OpenSSL4Swift;
+			productReference = CEC16A2E24F9220600F09DC9 /* OpenSSL4Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CEC16A4324F9220900F09DC9 /* OpenSSL4SwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEC16A5024F9220900F09DC9 /* Build configuration list for PBXNativeTarget "OpenSSL4SwiftTests" */;
+			buildPhases = (
+				CEC16A4024F9220900F09DC9 /* Sources */,
+				CEC16A4124F9220900F09DC9 /* Frameworks */,
+				CEC16A4224F9220900F09DC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEC16A4624F9220900F09DC9 /* PBXTargetDependency */,
+			);
+			name = OpenSSL4SwiftTests;
+			productName = OpenSSL4SwiftTests;
+			productReference = CEC16A4424F9220900F09DC9 /* OpenSSL4SwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEC16A2624F9220600F09DC9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = self;
+				TargetAttributes = {
+					CEC16A2D24F9220600F09DC9 = {
+						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
+					};
+					CEC16A4324F9220900F09DC9 = {
+						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
+						TestTargetID = CEC16A2D24F9220600F09DC9;
+					};
+				};
+			};
+			buildConfigurationList = CEC16A2924F9220600F09DC9 /* Build configuration list for PBXProject "OpenSSL4Swift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CEC16A2524F9220600F09DC9;
+			productRefGroup = CEC16A2F24F9220600F09DC9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEC16A2D24F9220600F09DC9 /* OpenSSL4Swift */,
+				CEC16A4324F9220900F09DC9 /* OpenSSL4SwiftTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEC16A2C24F9220600F09DC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC16A3E24F9220900F09DC9 /* LaunchScreen.storyboard in Resources */,
+				CEBB3D6F24F95F3000ED0D9B /* public_key.pem in Resources */,
+				CEC16A3B24F9220900F09DC9 /* Assets.xcassets in Resources */,
+				CEC16A3924F9220600F09DC9 /* Main.storyboard in Resources */,
+				CEBB3D7024F95F3000ED0D9B /* private_key_unencrypted.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEC16A4224F9220900F09DC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEC16A2A24F9220600F09DC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC16A3624F9220600F09DC9 /* ViewController.swift in Sources */,
+				CEC16A3224F9220600F09DC9 /* AppDelegate.swift in Sources */,
+				CEC16A3424F9220600F09DC9 /* SceneDelegate.swift in Sources */,
+				CEC16A5524F924F600F09DC9 /* OpenSSL4Swift.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEC16A4024F9220900F09DC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEC16A4924F9220900F09DC9 /* OpenSSL4SwiftTests.swift in Sources */,
+				CEC16A5624F924F600F09DC9 /* OpenSSL4Swift.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CEC16A4624F9220900F09DC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEC16A2D24F9220600F09DC9 /* OpenSSL4Swift */;
+			targetProxy = CEC16A4524F9220900F09DC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CEC16A3724F9220600F09DC9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEC16A3824F9220600F09DC9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CEC16A3C24F9220900F09DC9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEC16A3D24F9220900F09DC9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CEC16A4B24F9220900F09DC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/OpenSSL/include\"";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LIBRARY_SEARCH_PATHS = "";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CEC16A4C24F9220900F09DC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/OpenSSL/include\"";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LIBRARY_SEARCH_PATHS = "";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEC16A4E24F9220900F09DC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OpenSSL4Swift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenSSL/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.self.OpenSSL4Swift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenSSL4Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CEC16A4F24F9220900F09DC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = OpenSSL4Swift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenSSL/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.self.OpenSSL4Swift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenSSL4Swift-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CEC16A5124F9220900F09DC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/OpenSSL/include\"";
+				INFOPLIST_FILE = OpenSSL4SwiftTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.self.OpenSSL4SwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenSSL4SwiftTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenSSL4Swift.app/OpenSSL4Swift";
+			};
+			name = Debug;
+		};
+		CEC16A5224F9220900F09DC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = "\"$(PROJECT_DIR)/OpenSSL/include\"";
+				INFOPLIST_FILE = OpenSSL4SwiftTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.self.OpenSSL4SwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OpenSSL4SwiftTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenSSL4Swift.app/OpenSSL4Swift";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEC16A2924F9220600F09DC9 /* Build configuration list for PBXProject "OpenSSL4Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEC16A4B24F9220900F09DC9 /* Debug */,
+				CEC16A4C24F9220900F09DC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEC16A4D24F9220900F09DC9 /* Build configuration list for PBXNativeTarget "OpenSSL4Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEC16A4E24F9220900F09DC9 /* Debug */,
+				CEC16A4F24F9220900F09DC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEC16A5024F9220900F09DC9 /* Build configuration list for PBXNativeTarget "OpenSSL4SwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEC16A5124F9220900F09DC9 /* Debug */,
+				CEC16A5224F9220900F09DC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEC16A2624F9220600F09DC9 /* Project object */;
+}
