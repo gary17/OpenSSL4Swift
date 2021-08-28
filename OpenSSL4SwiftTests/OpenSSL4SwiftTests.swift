@@ -10,10 +10,8 @@ import XCTest
 
 // WARNING: uses "OpenSSL4SwiftTests-Bridging-Header.h" vs. "OpenSSL4Swift-Bridging-Header.h"
 
-fileprivate extension Bundle
-{
-	func extract(resource name: String, withExtension ext: String) -> String
-	{
+fileprivate extension Bundle {
+	func extract(resource name: String, withExtension ext: String) -> String {
 		let url = self.url(forResource: name, withExtension: ext)
 		if let url = url, let resource = try? String(contentsOf: url) { return resource }
 				
@@ -21,8 +19,7 @@ fileprivate extension Bundle
 	}
 }
 
-class OpenSSL4SwiftTests: XCTestCase
-{
+class OpenSSL4SwiftTests: XCTestCase {
 	/*
 
 	HOW TO GENERATE A PUBLIC/PRIVATE KEY PAIR
@@ -35,8 +32,7 @@ class OpenSSL4SwiftTests: XCTestCase
 
 	*/
 
-	override class func setUp()
-	{
+	override class func setUp() {
 		// load public and private keys
 		
 		var publicKey: OpenSSL4Swift.PublicKey?
@@ -54,8 +50,7 @@ class OpenSSL4SwiftTests: XCTestCase
 		self.privateKey = privateKey
 	}
 
-	func test001() throws
-	{
+	func test001() throws {
 		// detect invalid public and private keys
 		
 		var publicKey: OpenSSL4Swift.PublicKey?
@@ -71,8 +66,7 @@ class OpenSSL4SwiftTests: XCTestCase
 		XCTAssertNil(privateKey)
 	}
 
-	func test002() throws
-	{
+	func test002() throws {
 		// encrypt/decrypt
 
 		XCTAssertNotNil(OpenSSL4SwiftTests.publicKey)
@@ -87,21 +81,18 @@ class OpenSSL4SwiftTests: XCTestCase
 		XCTAssertNotNil(plaintext)
 		XCTAssert(plaintext?.count ?? 0 > 0)
 		
-		if let plaintext = plaintext
-		{
+		if let plaintext = plaintext {
 			var ciphertext: Data?
 			XCTAssertNoThrow(ciphertext = try OpenSSL4Swift.encrypt(publicKey: publicKey, plaintext: plaintext))
 
 			XCTAssertNotNil(ciphertext)
 			XCTAssert(ciphertext?.count ?? 0 > 0)
 			
-			if let ciphertext = ciphertext, ciphertext.count > 0
-			{
+			if let ciphertext = ciphertext, ciphertext.count > 0 {
 				var outtext: Data?
 				XCTAssertNoThrow(outtext = try OpenSSL4Swift.decrypt(privateKey: privateKey, ciphertext: ciphertext))
 				
-				if let outtext = outtext
-				{
+				if let outtext = outtext {
 					XCTAssert(outtext == plaintext)
 					XCTAssertEqual(OpenSSL4SwiftTests.secret, String(decoding: outtext, as: UTF8.self))
 				}
@@ -109,16 +100,14 @@ class OpenSSL4SwiftTests: XCTestCase
 		}
 	}
 	
-	func test003() throws
-	{
+	func test003() throws {
 		// detect encryption buffer overflow
 		
 		XCTAssertNotNil(OpenSSL4SwiftTests.publicKey)
 		
 		guard let publicKey = OpenSSL4SwiftTests.publicKey else { return }
 
-		let plaintext: Data? =
-		{
+		let plaintext: Data? = {
 			// RSA asymetric encryption is meant for small blocks of data; encrypt large data
 			// with a random symmetric key and encrypt that key with an RSA public key
 			let size: Int = numericCast(publicKey.blockSize + 1)
@@ -133,8 +122,7 @@ class OpenSSL4SwiftTests: XCTestCase
 		XCTAssertNotNil(plaintext)
 		XCTAssert(plaintext?.count ?? 0 > publicKey.blockSize)
 		
-		if let plaintext = plaintext
-		{
+		if let plaintext = plaintext {
 			var ciphertext: Data?
 			XCTAssertThrowsError(ciphertext = try OpenSSL4Swift.encrypt(publicKey: publicKey, plaintext: plaintext))
 
@@ -142,8 +130,7 @@ class OpenSSL4SwiftTests: XCTestCase
 		}
 	}
 	
-	func test004() throws
-	{
+	func test004() throws {
 		// detect decryption padding mismatch
 
 		XCTAssertNotNil(OpenSSL4SwiftTests.publicKey)
@@ -158,8 +145,7 @@ class OpenSSL4SwiftTests: XCTestCase
 		XCTAssertNotNil(plaintext)
 		XCTAssert(plaintext?.count ?? 0 > 0)
 		
-		if let plaintext = plaintext
-		{
+		if let plaintext = plaintext {
 			var ciphertext: Data?
 			XCTAssertNoThrow(ciphertext = try OpenSSL4Swift.encrypt(publicKey: publicKey, plaintext: plaintext,
 				paddingScheme: /* padding mismatch */ RSA_PKCS1_OAEP_PADDING))
@@ -167,8 +153,7 @@ class OpenSSL4SwiftTests: XCTestCase
 			XCTAssertNotNil(ciphertext)
 			XCTAssert(ciphertext?.count ?? 0 > 0)
 			
-			if let ciphertext = ciphertext, ciphertext.count > 0
-			{
+			if let ciphertext = ciphertext, ciphertext.count > 0 {
 				var outtext: Data?
 				XCTAssertThrowsError(outtext = try OpenSSL4Swift.decrypt(privateKey: privateKey, ciphertext: ciphertext,
 					paddingScheme: /* padding mismatch */ RSA_SSLV23_PADDING))

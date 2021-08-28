@@ -8,20 +8,17 @@
 
 import Foundation
 
-public protocol OpenSSL4Swift_RSAKey
-{
+public protocol OpenSSL4Swift_RSAKey {
 	var rsa: UnsafeMutablePointer<RSA>? { get }
 	var blockSize: /* unsigned */ UInt { get }
 }
 
-public enum /* namespace */ OpenSSL4Swift
-{
+public enum /* namespace */ OpenSSL4Swift {
 	// failure points
 
 	public typealias ErrorCode = UInt
 
-	public /* recursive */ indirect enum Failure: Error // LocalizedError available in an extension
-	{
+	public /* recursive */ indirect enum Failure: Error { // LocalizedError available in an extension
 		case
 			/* key */ utf8DecodeError,
 			/* encrypt */ blockSizeOverflow,
@@ -32,12 +29,10 @@ public enum /* namespace */ OpenSSL4Swift
 	// cannot nest a protocol (an interface) inside an enum (a namespace)
 	typealias RSAKey = OpenSSL4Swift_RSAKey
 
-	public class PublicKey: RSAKey
-	{
+	public class PublicKey: RSAKey {
 		public /* consumers: r/o */ internal(set) var rsa: UnsafeMutablePointer<RSA>?
 
-		init(from text: String) throws // a failable initializer would be too vague
-		{
+		init(from text: String) throws { // a failable initializer would be too vague
 			guard let keyData = text.data(using: .utf8) else { throw Failure.utf8DecodeError }
 			let keyBIO = try RSABIO(from: keyData)
 
@@ -47,18 +42,15 @@ public enum /* namespace */ OpenSSL4Swift
 			self.rsa = rsa
 		}
 		
-		deinit
-		{
+		deinit {
 			if rsa != nil { RSA_free(rsa) }
 		}
 	}
 
-	public class PrivateKey: RSAKey
-	{
+	public class PrivateKey: RSAKey {
 		public internal(set) var rsa: UnsafeMutablePointer<RSA>?
 
-		init(from text: String) throws
-		{
+		init(from text: String) throws {
 			guard let keyData = text.data(using: .utf8) else { throw Failure.utf8DecodeError }
 			let keyBIO = try RSABIO(from: keyData)
 
@@ -68,8 +60,7 @@ public enum /* namespace */ OpenSSL4Swift
 			self.rsa = rsa
 		}
 		
-		deinit
-		{
+		deinit {
 			if rsa != nil { RSA_free(rsa) }
 		}
 	}
@@ -77,8 +68,7 @@ public enum /* namespace */ OpenSSL4Swift
 	// processors
 
 	public static func encrypt(publicKey: PublicKey, plaintext: Data,
-		paddingScheme: Int32 = defaultRSAPaddingScheme) throws -> /* ciphertext */ Data?
-	{
+			paddingScheme: Int32 = defaultRSAPaddingScheme) throws -> /* ciphertext */ Data? {
 		// convert: UnsafeRawPointer >> UnsafePointer<T>
 		let plaintextDataPtr = (plaintext as NSData).bytes.assumingMemoryBound(to: UInt8.self)
 
@@ -102,8 +92,7 @@ public enum /* namespace */ OpenSSL4Swift
 	}
 	
 	public static func decrypt(privateKey: PrivateKey, ciphertext: Data,
-		paddingScheme: Int32 = defaultRSAPaddingScheme) throws -> /* plaintext */ Data?
-	{
+			paddingScheme: Int32 = defaultRSAPaddingScheme) throws -> /* plaintext */ Data? {
 		let ciphertextSize = ciphertext.count
 		guard numericCast(ciphertextSize) == privateKey.blockSize else { throw Failure.blockSizeMismatch }
 
@@ -162,25 +151,21 @@ public enum /* namespace */ OpenSSL4Swift
 
 	// MARK: - private
 
-	private class RSABIO // an I/O stream abstraction
-	{
+	private class RSABIO { // an I/O stream abstraction
 		public internal(set) var bio: UnsafeMutablePointer<BIO>?
 
-		init(from keyData: Data) throws
-		{
+		init(from keyData: Data) throws {
 			guard let bio = BIO_new(BIO_s_mem()) else { throw earliestLibError(api: "BIO_new") }
 			BIO_write(bio, (keyData as NSData).bytes, numericCast(keyData.count))
 			self.bio = bio
 		}
 		
-		deinit
-		{
+		deinit {
 			if bio != nil { BIO_free(bio) }
 		}
 	}
 	
-	private static /* thus lazy */ let stringsLoaded: Bool =
-	{
+	private static /* thus lazy */ let stringsLoaded: Bool = {
 		// initializes arrays for the error-handling library with messages specific to the RSA library
 
 		ERR_load_ERR_strings()
@@ -191,8 +176,7 @@ public enum /* namespace */ OpenSSL4Swift
 		return true
 	}()
 
-	private static func errorMessage(for errorCode: ErrorCode) -> String?
-	{
+	private static func errorMessage(for errorCode: ErrorCode) -> String? {
 		_ = self.stringsLoaded
 	
 		guard let nullTerminatedUTF8 = /* does not need dealloc */ ERR_error_string(errorCode, nil) else { return nil }
@@ -201,12 +185,10 @@ public enum /* namespace */ OpenSSL4Swift
 
 	typealias ErrorQueue = [ErrorCode]
 	
-	private static func libErrors() -> ErrorQueue // the EARLIEST error code first
-	{
+	private static func libErrors() -> ErrorQueue { // the EARLIEST error code first
 		var errorCodes = ErrorQueue()
 
-		while true
-		{
+		while true {
 			// returns the EARLIEST error code from the thread's error queue and removes the entry
 			let errorCode = ERR_get_error()
 
@@ -216,8 +198,7 @@ public enum /* namespace */ OpenSSL4Swift
 		return errorCodes
 	}
 
-	private static func earliestLibError(api: String) -> Failure // the EARLIEST failure first
-	{
+	private static func earliestLibError(api: String) -> Failure { // the EARLIEST failure first
 		let errorCodes = libErrors()
 
 		/*
@@ -241,8 +222,7 @@ public enum /* namespace */ OpenSSL4Swift
 
 extension OpenSSL4Swift_RSAKey
 {
-	public var blockSize: /* unsigned */ UInt
-	{
+	public var blockSize: /* unsigned */ UInt {
 		// the RSA modulus size in bytes; how much memory must be allocated for an RSA encrypted value
 		return rsa != nil ? numericCast(RSA_size(rsa)) : 0
 	}
@@ -250,10 +230,8 @@ extension OpenSSL4Swift_RSAKey
 
 extension OpenSSL4Swift.Failure: LocalizedError
 {
-	public var errorDescription: String?
-	{
-		switch self
-		{
+	public var errorDescription: String? {
+		switch self {
 			case .utf8DecodeError:
 				return NSLocalizedString("UTF-8 decode error", comment: "")
 			
